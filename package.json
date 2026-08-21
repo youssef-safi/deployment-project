@@ -19,7 +19,7 @@
     "url": "git+https://github.com/youssef-safi/deployment-project.git"
   },
   "keywords": [],
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/youssef-safi/deployment-project/issues"
   },
