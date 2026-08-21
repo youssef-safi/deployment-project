@@ -1,6 +1,6 @@
 import "dotenv/config";
-import env from "@/config";
-import app from "@/app";
+import env from "#/config.js";
+import app from "#/app.js";
 
 const PORT = env.PORT;
 
