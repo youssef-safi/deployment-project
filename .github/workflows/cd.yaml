@@ -29,7 +29,7 @@ jobs:
           scp -i ~/.ssh/github-actions-deploy \
             -o StrictHostKeyChecking=no \
             clinic-api.tar.gz \
-            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }}:/tmp/clinic-api.tar.gz
+            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }}:/tmp/deployment-project.tar.gz
 
       - name: ssh to server
         run: |
