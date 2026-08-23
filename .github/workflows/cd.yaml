@@ -1,0 +1,25 @@
+name: cd
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  connect:
+    runs-on: ubuntu@latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-actions-deploy
+          chmod 600 ~/.ssh/github-actions-deploy
+
+      - name: ssh to server
+        run: |
+          ssh -o StrictHostKeyChecking=no \
+          ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }} \
+          "echo 'Connected to production server'"
