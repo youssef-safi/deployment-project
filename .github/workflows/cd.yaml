@@ -20,6 +20,7 @@ jobs:
 
       - name: ssh to server
         run: |
-          ssh -o StrictHostKeyChecking=no \
+          ssh -i ~/.ssh/github-actions-deploy \
+          -o StrictHostKeyChecking=no \
           ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }} \
           "echo 'Connected to production server'"
