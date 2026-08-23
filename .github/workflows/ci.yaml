@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,3 +22,19 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Create artifact
+        run: |
+          mkdir package
+          cp -r dist package/
+          cp -r prisma package/
+          cp package.json package/
+          cp package-lock.json package/
+
+          tar -czf clinic-api.tar.gz -C package .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: clinic-api
+          path: clinic-api.tar.gz
