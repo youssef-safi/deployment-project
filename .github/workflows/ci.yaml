@@ -27,7 +27,6 @@ jobs:
         run: |
           mkdir package
           cp -r dist package/
-          cp -r prisma package/
           cp package.json package/
           cp package-lock.json package/
 
