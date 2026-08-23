@@ -36,7 +36,6 @@ jobs:
           ssh -i ~/.ssh/github-actions-deploy \
           -o StrictHostKeyChecking=no \
           ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }} \
-          "mkdir -p /var/www/deployment-project && \
-          tar -xzf /tmp/deployment-project.tar.gz -C /home/ubuntu/deployment-project \
+          "tar -xzf /tmp/deployment-project.tar.gz -C /home/ubuntu/deployment-project \
           cd /home/ubuntu/deployment-project && npm ci --omit=dev \
           sudo systemctl restart deployment-project"
